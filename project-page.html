@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>REST API form.</title>
+  </head>
+  <body>
+    <dialog></dialog>
+    <div class="header">
+      <h1>REST API project with forms</h1>
+      <input id="create-btn" type="button" value="Create post." />
+    </div>
+    <!-- FORM SECTION -->
+    <br />
+    <br />
+    <br />
+    <form action="" method="" id="signup">
+      <label for="fullname" required>Full Name:</label>
+      <input type="text" name="fullname" id="full-name-input" />
+
+      <label for="email" required>E-mail:</label>
+      <input type="email" name="email" id="email-input" />
+
+      <article id="sitedata">
+        <label for="username" required>Username</label>
+        <input type="text" name="username" id="username-input" />
+
+        <label for="password" required>Password</label>
+        <input type="text" name="password" id="password-input" />
+
+        <label for="repeat-password" required>Repeat password</label>
+        <input type="text" name="repeat-password" id="password-input-repeat" />
+      </article>
+
+        <div id="payment" required>
+          <p>Payment</p>
+          <input type="radio" name="payment" id="radio-free" value="free"/>
+          <label for="payment1">Free</label><br />
+          <input type="radio" name="payment" id="radio-cheap" value="cheap"/>
+          <label for="payment2">Cheap</label><br />
+          <input type="radio" name="payment" id="radio-fair" value="fair"/>
+          <label for="payment3" checked>Fair</label><br />
+          <input type="radio" name="payment" id="radio-expensive" value="expensive"/>
+          <label for="payment4">Expensive</label><br />
+        </div>
+          <select id="select-paymentcycle" name="paymentPlan" required>
+            <option value="daily" name="paymentPlan" checked>Daily</option>
+            <option value="weekly" name="paymentPlan">Weekly</option>
+            <option value="monthly" name="paymentPlan">Monthly</option>
+            <option value="yearly" name="paymentPlan">Yearly</option>
+          </select>
+
+        <label for="spam">I would like to receive emails.</label>
+        <input type="checkbox" name="spam" id="spam-checkbox" checked>
+
+        <label for="spam">I accept the terms and conditions.</label>
+        <input type="checkbox" name="accept" id="accept-checkbox" required>
+      </article>
+      <input type="submit" value="Sign up." id="form-submit-btn">
+      <input type="reset" value="Clear form." id="form-submit-btn">
+    </article>
+    </form>
+    <br />
+    <br />
+    <br />
+    <!-- FORM SECTION END -->
+    <div class="grid-container-items">
+      <div class="grid-item-card">
+        <div class="grid-item">
+          <h2 class="post-title">Post title</h2>
+
+          <img
+            class="post-image"
+            src="https://www.boredpanda.com/blog/wp-content/uploads/2022/09/relatable-funny-memes-67-6329c4995c640__700.jpg"
+          />
+          <p class="post-description">This is a description</p>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+    <script src="script.js"></script>
+  </body>
+</html>
