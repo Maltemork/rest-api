@@ -12,10 +12,11 @@
     <div class="header">
       <h1>REST API project with forms</h1>
       <input id="create-btn" type="button" value="Create post." />
+      <input id="signup-btn" type="button" value="Sign up." />
     </div>
+    <hr>
     <!-- FORM SECTION -->
-    <br />
-    <br />
+    <article id="form-section" hidden>
     <br />
     <form action="" method="" id="signup">
       <label for="fullname" required>Full Name:</label>
@@ -34,7 +35,6 @@
         <label for="repeat-password" required>Repeat password</label>
         <input type="text" name="repeat-password" id="password-input-repeat" />
       </article>
-
         <div id="payment" required>
           <p>Payment</p>
           <input type="radio" name="payment" id="radio-free" value="free"/>
@@ -58,25 +58,19 @@
 
         <label for="spam">I accept the terms and conditions.</label>
         <input type="checkbox" name="accept" id="accept-checkbox" required>
-      </article>
       <input type="submit" value="Sign up." id="form-submit-btn">
       <input type="reset" value="Clear form." id="form-submit-btn">
-    </article>
+  
+    <br>
     </form>
+    <br>
+    <hr>
     <br />
-    <br />
-    <br />
+    </article>
     <!-- FORM SECTION END -->
     <div class="grid-container-items">
       <div class="grid-item-card">
         <div class="grid-item">
-          <h2 class="post-title">Post title</h2>
-
-          <img
-            class="post-image"
-            src="https://www.boredpanda.com/blog/wp-content/uploads/2022/09/relatable-funny-memes-67-6329c4995c640__700.jpg"
-          />
-          <p class="post-description">This is a description</p>
         </div>
       </div>
     </div>
