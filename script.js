@@ -1,7 +1,6 @@
 "use strict";
 window.addEventListener("load", start);
 
-
 //--------START FUNCTION----------//
 async function start() {
   updatePostsTable();
@@ -16,7 +15,7 @@ async function start() {
 }
 
 const endpoint =
-  "https://first-78ee1-default-rtdb.europe-west1.firebasedatabase.app";
+  "https://rest-crud-87da6-default-rtdb.europe-west1.firebasedatabase.app/";
 
 function submitClick(event) {
   event.preventDefault();
@@ -105,7 +104,6 @@ async function updatePost(id, image, title, body) {
   }
 }
 
-
 // --------------USERS SECTION---------------------//
 
 //Update the users table
@@ -188,7 +186,7 @@ async function getPosts() {
 
 //update the posts section
 async function updatePost(id, image, title, body) {
-  const postToUpdate = { image, title, body }
+  const postToUpdate = { image, title, body };
   const jsonString = JSON.stringify(postToUpdate);
   const response = await fetch(`${endpoint}/posts/${id}.json`, {
     method: "PUT",
@@ -205,10 +203,11 @@ async function updatePost(id, image, title, body) {
 function showPosts(posts) {
   document.querySelector(".post-item-card").innerHTML = "";
 
-      //Show individual post in HTML
-      function showPost(post) {
-      const htmlPostData = /*html*/ 
-          `
+  //Show individual post in HTML
+  function showPost(post) {
+    const htmlPostData =
+      /*html*/
+      `
           <div class="post-item">
             <div><image src=${post.image}></>
             <div id="post_title">${post.title}</div>
@@ -218,18 +217,21 @@ function showPosts(posts) {
           </div>
           `;
 
-      document.querySelector(".grid-item-card").insertAdjacentHTML("beforeend", htmlPostData);
-    }
+    document
+      .querySelector(".grid-item-card")
+      .insertAdjacentHTML("beforeend", htmlPostData);
+  }
 
   posts.forEach(showPost);
 }
 
 //misc eventlisteners
 
-
 //signup form only shows when pressed.
 function signUpBtn() {
-  document.querySelector("#signup-btn").addEventListener("click", signupClicked);
+  document
+    .querySelector("#signup-btn")
+    .addEventListener("click", signupClicked);
   function signupClicked() {
     if (document.querySelector("#form-section").hidden === true) {
       document.querySelector("#form-section").hidden = false;
