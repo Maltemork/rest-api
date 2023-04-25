@@ -57,18 +57,21 @@ function acceptClick(event) {
 
 //When create post button is clicked
 function createPostClicked() {
-  const randomNumber = Math.floor(Math.random() * 100 + 1);
-  const title = `Title Post Number ${randomNumber}`;
-  const image = "image";
-  const body = "new body";
+  const title = document.querySelector("#create_title_input").value;
+  const image = document.querySelector("#create_image_input").value;
+  const body = document.querySelector("#create_description_input").value;
 
-  createPost(image, title, body);
+  createPost(title, image, body);
 }
 
 //Creates new post from JSON.
-async function createPost(image, title, body) {
+async function createPost(title, image, body) {
   console.log("Create post");
-  const newPost = { image, title, body };
+  const newPost = {
+    title,
+    image,
+    body,
+  };
   //The object gets made to a JSON-string
   const jsonString = JSON.stringify(newPost);
   //Use of fetch to POST the json string
@@ -247,8 +250,9 @@ function preparePostData(dataObject) {
   return postArray;
 }
 
-//misc eventlisteners
+//create posts function
 
+//////////////----------------misc eventlisteners
 //signup form only shows when pressed.
 function signUpBtn() {
   document
@@ -264,6 +268,7 @@ function signUpBtn() {
   }
 }
 
+//creat form only shows when pressed.
 function createBtn() {
   const button = document.querySelector("#create-btn");
   button.addEventListener("click", createBtnClick);
