@@ -7,37 +7,36 @@
 }
 
 body {
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   background-color: var(--dark-pink);
   color: var(--white);
 }
 
 .grid-container-items {
+  position: relative;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: auto;
+  align-items: center;
+  align-content: center;
+  align-self: center;
 }
 
 .grid-item-card {
   background: var(--normal-pink);
   display: grid;
+  height: 14em;
+  width: 1fr;
+  overflow: hidden;
   grid-template-columns: 1fr;
   grid-template-rows: auto;
   font-size: 40px;
   border: 2px solid black;
   border-radius: 8px;
-  height: fit-content;
   margin: 5px;
   transition: 0.3s;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.331);
-}
-
-.grid-item {
-  margin: auto;
-  align-content: center;
-  align-items: center;
-  align-self: center;
 }
 
 .grid-item-card:hover {
@@ -45,8 +44,9 @@ body {
   z-index: 1000;
   background: var(--light-pink);
 }
-.grid-item img {
-  max-height: 500px;
+.grid-item-card img {
+  width: 100%;
+  max-height: 6em;
 }
 
 /* FORM SECTION */
@@ -95,5 +95,89 @@ body {
   align-tracks: left;
   margin-left: 20px;
 }
-
 /* FORM SECTION END */
+.post_title {
+  font-size: 25px;
+}
+
+.post_body {
+  font-size: 20px;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 1fr 5fr 1fr;
+}
+
+.header input {
+  height: 50%;
+  width: 50%;
+  border-radius: 0px;
+  background-color: #666666;
+  border-color: #34323d;
+  color: white;
+}
+.header input:hover {
+  background-color: #959595;
+}
+
+input::placeholder {
+  text-align: center;
+}
+
+.header :first-child {
+  align-self: left;
+  margin: auto;
+}
+
+.header :last-child {
+  align-self: right;
+  align-items: right;
+  align-content: right;
+  margin: auto;
+}
+
+.header h1 {
+  font-size: 30px;
+}
+
+input {
+  border-radius: 0px;
+  border-style: none;
+}
+
+/* CREATE POST SECTION */
+
+#create-post-section {
+  text-align: left;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  width: 50%;
+  margin: auto;
+  padding: 10px;
+  border: 1px solid white;
+  align-self: center;
+  align-content: center;
+  align-items: center;
+}
+
+#create-post-section input::placeholder {
+  text-align: left;
+}
+
+#create-post-section * {
+  margin: 5px;
+  padding: 5px;
+  max-width: 100%;
+}
+
+#create-post-section button {
+  max-width: 50px;
+}
+
+#create_description_input {
+  min-height: 100px;
+  height: fit-content;
+  text-align: start;
+  resize: none;
+}

@@ -1,14 +1,23 @@
 "use strict";
 window.addEventListener("load", start);
+const usersArr = [];
 
 //--------START FUNCTION----------//
 async function start() {
   updatePostsTable();
   updateUsersTable();
   signUpBtn();
+  createBtn();
 
   console.log("app loaded");
   document.querySelector("#signup").addEventListener("submit", submitClick);
+  document
+    .querySelector("#accept-checkbox")
+    .addEventListener("click", acceptClick);
+
+  document
+    .querySelector("#create-post-section")
+    .addEventListener("submit", createPost);
   document
     .querySelector("#accept-checkbox")
     .addEventListener("click", acceptClick);
@@ -29,13 +38,13 @@ function submitClick(event) {
     email: elements.email.value,
     username: elements.username.value,
     password: elements.password.value,
-    payment: elements.payment.value,
-    paymentcycle: elements.paymentPlan.value,
     spam: elements.spam.checked,
     accept: elements.accept.checked,
   };
 
-  console.log(signup);
+  usersArr.push(signup);
+
+  console.log(usersArr);
 }
 
 function acceptClick(event) {
@@ -181,7 +190,8 @@ async function getPosts() {
   console.log("Get the posts");
   const response = await fetch(`${endpoint}/posts.json`);
   const data = await response.json();
-  return prepareData(data);
+  const posts = preparePostData(data);
+  return posts;
 }
 
 //update the posts section
@@ -201,28 +211,40 @@ async function updatePost(id, image, title, body) {
 
 //Show posts in html
 function showPosts(posts) {
-  document.querySelector(".post-item-card").innerHTML = "";
+  document.querySelector(".grid-container-items").innerHTML = "";
 
   //Show individual post in HTML
   function showPost(post) {
     const htmlPostData =
       /*html*/
       `
-          <div class="post-item">
-            <div><image src=${post.image}></>
-            <div id="post_title">${post.title}</div>
-            <div id="post_body">${post.body}</div>
+          <div class="grid-item-card">
+            <image src=${post.image}></image>
+            <h2 class="post_title">${post.title}</h2>
+            <p class="post_body">${post.body}</p>
             <button class="delete-btn">Delete</button>
             <button class="update-btn">Update</button>
           </div>
           `;
 
     document
-      .querySelector(".grid-item-card")
+      .querySelector(".grid-container-items")
       .insertAdjacentHTML("beforeend", htmlPostData);
   }
 
   posts.forEach(showPost);
+}
+
+function preparePostData(dataObject) {
+  const postArray = [];
+  for (const key in dataObject) {
+    const post = dataObject[key];
+    post.id = key;
+    console.log(post);
+    postArray.push(post);
+  }
+  console.log(postArray);
+  return postArray;
 }
 
 //misc eventlisteners
@@ -235,8 +257,22 @@ function signUpBtn() {
   function signupClicked() {
     if (document.querySelector("#form-section").hidden === true) {
       document.querySelector("#form-section").hidden = false;
+      document.querySelector("#create-section").hidden = true;
     } else {
       document.querySelector("#form-section").hidden = true;
+    }
+  }
+}
+
+function createBtn() {
+  const button = document.querySelector("#create-btn");
+  button.addEventListener("click", createBtnClick);
+  function createBtnClick() {
+    if (document.querySelector("#create-section").hidden === true) {
+      document.querySelector("#create-section").hidden = false;
+      document.querySelector("#form-section").hidden = true;
+    } else {
+      document.querySelector("#create-section").hidden = true;
     }
   }
 }
