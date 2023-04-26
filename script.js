@@ -12,10 +12,6 @@ async function start() {
   console.log("app loaded");
   document.querySelector("#signup").addEventListener("submit", submitClick);
   document
-    .querySelector("#accept-checkbox")
-    .addEventListener("click", acceptClick);
-
-  document
     .querySelector("#create-post-section")
     .addEventListener("submit", createPost);
   document
